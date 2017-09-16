@@ -19,10 +19,10 @@
       function update($params){
           $m = new MovieModel($params['id'],$params['name'], $params['d_id']);
           $mc = new MovieController;
-          return $mc->upadte($m);
+          return $mc->update($m);
       }
       function delete($params){
-          $m = new MovieModel($params['id']);
+          $m = new MovieModel($params['id'],"","");
           $mc = new MovieController;
           return $mc->delete($m);
       }

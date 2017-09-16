@@ -13,49 +13,39 @@
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
        
-        public function __construct() {
-            $this->dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
-        }
-  
-
-
-// get from adta base //
-
-  public function select($quary,$exct){
-
-            $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
-        
-            $stmt = $pdo->prepare($quary);
-            $stmt->execute($exct);
-            $row=$stmt->fetch();
-            return $row;
+            public function __construct() {
+                    $this->dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
             }
-    
+        
 
- // add  or delete or update to the date base//
 
-    public function insert($quary,$exct){
+                // get from adta base //
 
-           $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
-         
-            $stmt = $pdo->prepare($quary);
-            $stmt->execute($exct);
+            public function select($query,$exct){
+
+                        $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+                    
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute($exct);
+                        $row=$stmt->fetch();
+                        return $row;
+            }
+                
+                // add  or delete or update to the date base//
+
+            public function insert($query,$exct) {
+
+                    $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
                         
+                    $stmt = $pdo->prepare($query);
+                    $stmt->execute($exct);
+                                    
+            }
     }
      
-    //get all //
 
-    static function selectAll($quary,$stmt){
 
-            
-            $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
-        
-            $stmt = $pdo->prepare($quary);
-            $stmt->execute($exct);
-            return $stmt;
-      
-        }
- }
+  
 
 
 ?>

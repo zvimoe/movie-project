@@ -10,12 +10,15 @@ require_once 'movie-api.php';
     switch('movies'){
         case 'movies':
         $m=new MovieApi;
-        print_r ($m->manager('GET',array('id'=>'1','name'=>"armegedon",'d_id'=>"2")));
+        $movie=$m->manager('DELETE',array('id'=>'3','name'=>"armegedon",'d_id'=>"5"));
+        echo $movie['name'];
         break;
         case 'directors':
         $m=new DirectorApi;
-        echo $m->manager($meth,$adata);
+        $movie= $m->manager($meth,$adata);
+        echo gettype($movie);
         break;
      
 
 }
+?>
