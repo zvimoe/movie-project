@@ -18,6 +18,12 @@
                 return array("SELECT * FROM $table WHERE $ind__c=:ind",["ind" => $indecator]);
             
         }
+         public function ALLquerybuilder($table){
+
+                return array("SELECT * FROM $table");
+            
+        }
+        
         public function Uquerybuilder($params,$indc,$table){
                     $indecator=array_shift($params);
                     $query = "UPDATE $table SET";

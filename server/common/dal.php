@@ -30,6 +30,14 @@
                         $row=$stmt->fetch();
                         return $row;
             }
+             public function selectALL($query){
+
+                        $pdo = new PDO($this->dsn, $this->user, $this->pass, $this->opt);
+                    
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute();
+                        return $stmt;
+            }
                 
                 // add  or delete or update to the date base//
 

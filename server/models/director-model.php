@@ -10,8 +10,8 @@
        public function getparams(){
            
          $params=[
-             id =>$this->id,
-             name =>$this->name
+             'id' =>$this->id,
+             'name' =>$this->name
          ];
          return $params;
 
