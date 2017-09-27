@@ -23,7 +23,7 @@ require_once "../common/dal.php";
           else{
                 $query=$bl->Rquerybuilder($data[$this->indecator],$this->indecator,$this->tb);
                 $dl=new Conn;
-                return $dl->select($query[0]$query[1]);
+                return $dl->select($query[0],$query[1]);
           }
            
           }

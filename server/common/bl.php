@@ -15,12 +15,12 @@
         }
         public function Rquerybuilder($indecator,$ind__c,$table){
 
-                return array("SELECT * FROM $table WHERE $ind__c=:ind",["ind" => $indecator]);
+                return array("SELECT * FROM $table WHERE $ind__c=:ind",array("ind" => $indecator));
             
         }
          public function ALLquerybuilder($table){
 
-                return array("SELECT * FROM $table");
+                return "SELECT * FROM $table";
             
         }
         

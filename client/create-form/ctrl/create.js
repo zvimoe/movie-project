@@ -7,11 +7,12 @@ $.ajax({
           adata:{id:"all"}
         },
     success: function(data) {
-         console.log(data)
+    
+      let arr=data
         
-         for (let i=0; i < data.length; i++) {
+         for (let i=0; i < arr.length; i++) {
 
-          $("select").append("<option>"+data[i].name+"</option>")
+          $("select").append("<option>"+arr[i].name+"</option>")
 
          }
     }

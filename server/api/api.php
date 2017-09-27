@@ -1,14 +1,13 @@
 <?php
 
 require_once 'director-api.php';
-require_once 'movie-api.php';
+ require_once 'movie-api.php';
 
  
   $meth= strtoupper($_SERVER['REQUEST_METHOD']);
-  $adata = isset( $_REQUEST['adata']);
+  $adata =  $_REQUEST['adata'];
   $table = $_REQUEST['table'];
-   echo 'adata';
-   die();
+
 
   
     switch($table){
@@ -19,14 +18,15 @@ require_once 'movie-api.php';
         break;
         case 'directors':
         $m=new DirectorApi;
-        $directors= $m->manager($meth,$adata);
+        $stmt= $m->manager($meth,$adata);
+        $directors = array();
         foreach($stmt as $row){
-           echo $row['name'].' '.$row['d_id'];
+            array_push($directors,$row["name"]); 
+           
         }
-        
+           echo json_encode($directors);
         break;
     };
      
-
 
 ?>

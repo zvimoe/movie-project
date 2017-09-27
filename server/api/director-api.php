@@ -13,6 +13,7 @@
           return "new director inserted";
       }
       function select($params){
+          
           $m = new DirectorModel($params['id'],"");
           $mc = new DirectorController;
           return $mc->select($m);
