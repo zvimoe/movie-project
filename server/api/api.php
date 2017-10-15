@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 require_once 'director-api.php';
  require_once 'movie-api.php';
@@ -13,7 +13,7 @@ require_once 'director-api.php';
     switch($table){
         case 'movies':
         $m=new MovieApi;
-        $movie=$m->manager($meth,array('id'=>'3','name'=>"armegedon",'d_id'=>"5"));
+        $movie=$m->manager($meth,$adata);
         echo $movie['name'];
         break;
         case 'directors':
@@ -22,11 +22,11 @@ require_once 'director-api.php';
         $directors = array();
         foreach($stmt as $row){
             array_push($directors,$row["name"]); 
-           
+          
         }
-           echo json_encode($directors);
+         echo json_encode($directors);
         break;
-    };
-     
+    }; 
+   
 
 ?>

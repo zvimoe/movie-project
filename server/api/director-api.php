@@ -1,7 +1,7 @@
 <?php
 
   require_once "abstract-api.php";
-  require_once "../controllers/director-controller.php";
+ require_once "../controllers/director-controller.php";
   require_once "../models/director-model.php";
 
   class DirectorApi extends Api{
@@ -31,8 +31,3 @@
       }
     }
     ?>
-        
-      
-        }
-
-  }
