@@ -1,5 +1,5 @@
 
-
+//ajax call for a dropdown of directors
 (function(){$.ajax({
     url: "../../server/api/api.php",
     type: 'GET',
@@ -12,31 +12,51 @@
         
         for (let i=0; i<arr.length; i++) {
 
-          $("select").append("<option>"+arr[i]+"</option>")
+          $("select").append("<option value='"+i+"'>"+arr[i]+"</option>")
 
          }
    }
 })
  }()) 
-function movie(name,dirctor){
+//function constractor for movies
+function movie(name,dirctor,id){
     this.name=name;
     this.d_id=dirctor;
+    this.id=id
 }
+// function to create a new movie
 function createMovie(){
     console.log("works")
-  let m= new movie($("#name").val(),$("#director").val());
+  let m= new movie($("#name").val(),$("#director").val()+1,0);
  (function(){$.ajax({
     url: "../../server/api/api.php",
     type: 'POST',
-    data:{table:'movie',
+    data:{table:'movies',
           adata:m
          },
     success: function(data) {
         console.log(data)
      }
     })
-})
+}())
 }
+function updateMovie(){
+   
+  let m= new movie($("#name").val(),$("#director").val()+1,$("#id").val());
+     console.log(m);
+ (function(){$.ajax({
+    url: "../../server/api/api.php",
+    type: 'PUT',
+    data:{table:'movies',
+          adata:m
+         },
+    success: function(data) {
+        console.log(data)
+     }
+    })
+}())
+}
+//TODO validation on inputs
     
 
     

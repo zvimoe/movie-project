@@ -20,6 +20,7 @@
           $m = new MovieModel($params['id'],$params['name'], $params['d_id']);
           $mc = new MovieController;
           return $mc->update($m);
+       
       }
       function delete($params){
           $m = new MovieModel($params['id'],"","");

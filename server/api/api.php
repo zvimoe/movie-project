@@ -5,16 +5,32 @@ require_once 'director-api.php';
 
  
   $meth= strtoupper($_SERVER['REQUEST_METHOD']);
-  $adata =  $_REQUEST['adata'];
-  $table = $_REQUEST['table'];
+  if ($meth == 'PUT')
+    {
+        parse_str(file_get_contents("php://input"), $_PUT);
 
+        foreach ($_PUT as $key => $value)
+        {
+            unset($_PUT[$key]);
 
+            $_PUT[str_replace('amp;', '', $key)] = $value;
+        }
+
+        $_REQUEST = array_merge($_REQUEST, $_PUT);
+    }
+    $adata =  $_REQUEST['adata'];
+    $table = $_REQUEST['table'];
+    
+    
+
+    
   
     switch($table){
         case 'movies':
+        echo $meth;
         $m=new MovieApi;
         $movie=$m->manager($meth,$adata);
-        echo $movie['name'];
+        echo $meth;
         break;
         case 'directors':
         $m=new DirectorApi;
